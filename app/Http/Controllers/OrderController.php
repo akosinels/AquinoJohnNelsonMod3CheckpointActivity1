@@ -28,10 +28,14 @@ class OrderController extends Controller
         return redirect()->route('orders.index')->with('success', 'Order created successfully.');
     }
 
-    public function show(Order $order)
+    public function show($customerId, $name, $orderNo, $date)
     {
-        $order->load(['customer', 'orderDetails.item']);
-        return view('orders.show', compact('order'));
+        return view('orders.show', [
+            'customerId' => $customerId,
+            'name' => $name,
+            'orderNo' => $orderNo,
+            'date' => $date
+        ]);
     }
 
     public function edit(Order $order)

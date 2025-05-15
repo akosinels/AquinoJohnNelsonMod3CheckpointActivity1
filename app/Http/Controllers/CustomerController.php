@@ -49,4 +49,13 @@ class CustomerController extends Controller
         $customer->delete();
         return redirect()->route('customers.index')->with('success', 'Customer deleted successfully.');
     }
+
+    public function show($customerId, $name, $address)
+    {
+        return view('customers.show', [
+            'customerId' => $customerId,
+            'name' => $name,
+            'address' => $address
+        ]);
+    }
 } 

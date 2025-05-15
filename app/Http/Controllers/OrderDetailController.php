@@ -57,4 +57,16 @@ class OrderDetailController extends Controller
         $orderDetail->delete();
         return redirect()->route('order-details.index')->with('success', 'Order detail deleted successfully.');
     }
+
+    public function show($transNo, $orderNo, $itemId, $name, $price, $qty)
+    {
+        return view('order-details.show', [
+            'transNo' => $transNo,
+            'orderNo' => $orderNo,
+            'itemId' => $itemId,
+            'name' => $name,
+            'price' => $price,
+            'qty' => $qty
+        ]);
+    }
 } 

@@ -10,6 +10,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Customer Route with parameters
+Route::get('/customer/{customerId}/{name}/{address}', [CustomerController::class, 'show'])
+    ->name('customers.show');
+
+// Item Route with parameters
+Route::get('/item/{itemNo}/{name}/{price}', [ItemController::class, 'show'])
+    ->name('items.show');
+
+// Order Route with parameters
+Route::get('/order/{customerId}/{name}/{orderNo}/{date}', [OrderController::class, 'show'])
+    ->name('orders.show');
+
+// Order Details Route with parameters
+Route::get('/order-detail/{transNo}/{orderNo}/{itemId}/{name}/{price}/{qty}', [OrderDetailController::class, 'show'])
+    ->name('order-details.show');
+
 // Items Routes
 Route::resource('items', ItemController::class);
 

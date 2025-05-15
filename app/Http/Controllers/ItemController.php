@@ -49,4 +49,13 @@ class ItemController extends Controller
         $item->delete();
         return redirect()->route('items.index')->with('success', 'Item deleted successfully.');
     }
+
+    public function show($itemNo, $name, $price)
+    {
+        return view('items.show', [
+            'itemNo' => $itemNo,
+            'name' => $name,
+            'price' => $price
+        ]);
+    }
 } 
